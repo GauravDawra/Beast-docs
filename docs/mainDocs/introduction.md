@@ -22,3 +22,4 @@ Not only does Beast provide you with an easy to understand structure for all you
 
 In addition, Beast has a highly optimized build procedure which works well for multiple threads too. Understanding the build procedure can further help you write optimized beast build files. See [**Build procedure**](buildProcedure.md).
 <!-- , where the user defines several *rules*. These *build rules* define what needs to be done to build a *target* and what all dependencies need to be met before building this *target*. -->
+Go ahead and... ***Unleash the Beast***!

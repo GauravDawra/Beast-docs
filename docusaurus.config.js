@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Beast',
-  tagline: 'Build system',
+  tagline: 'Unleash the Beast',
   url: 'https://gauravdawra.github.io/',
   baseUrl: '/Beast-docs/',
   onBrokenLinks: 'warn',
