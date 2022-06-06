@@ -5,10 +5,7 @@ title: Introduction
 docId: introduction
 ---
 
-# ***Beast*** - The Build System
-<!-- <p align="center">
-<img style="align: center;" src="./logoLight.png" title="Dependency graph" height="500px"  />
-</p> -->
+# ***Beast*** - The Build System {#my-explicit-id}
 ![intro-logo](../../static/img/favicon.png)
 
 Beast is a build system designed for the purpose of power,

@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Beast',
+  tagline: 'Build system',
   url: 'https://gauravdawra.github.io/',
   baseUrl: '/Beast-docs/',
   onBrokenLinks: 'warn',
@@ -35,6 +35,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: "/",
+          sidebarCollapsible: true,
           // exclude: ['quickStart']
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -60,6 +61,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        // disableSwitch: true,
+      },
+      
       navbar: {
         title: 'Beast',
         // hideOnScroll: true,
@@ -87,6 +93,13 @@ const config = {
             docId: 'quickStart/beast-quickstart',
             // to: "/quickstart2",
             label: 'Quickstart',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            sidebarId: 'quickstart',
+            docId: 'contribute/contribute',
+            label: 'Contribute'
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {

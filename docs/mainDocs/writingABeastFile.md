@@ -2,7 +2,7 @@
 title: Writing a Beast file
 sidebar_position: 3
 ---
-# Writing a Beast file
+<!-- # Writing a Beast file -->
 
 Beast has been made keeping easiness of usage in mind. Writing a beast build file is very easy. The name of a Beast build file is ***beast.build***.
 This article walks you through a basic way to write a build file. So let's get started!!!
@@ -37,28 +37,35 @@ To specify a build command (which is a shell command), we have to add an exclama
 Everything that follows this exclamation mark is considered as a shell command to be executed while building the target. If multiple shell commands are specified in a build rule (like in the example), they will be executed in the order they appear.
 
 ## Variables
-We can define variables in our beast file. This can be done either in the global scope so that the variables are visible to all the rules or locally inside the build rules. Each variable can either be an *integer* or a *string*. Variables can be defined like so:
+We can define variables in our beast file. This can be done either in the *global scope* (outside any build rules) so that the variables are visible to all the rules or locally inside the build rules. Each variable can either be an *integer* or a *string*. Variables can be defined like:
 ```
 a = "hello"
 b = 50
 c = b + 20
 ```
 In the above example, 3 variables are defined. *a* is a string "hello", *b* is an integer 50, and *c* takes the variable *b* and adds 20 to it which makes it an 70.
-
-If these lines are present outside of any build rule, in the main global scope, they will be available for use inside any build rule. Similarly, we can also define variables inside a build rule. We just have to indent these variable declarations.
-
-Note that only the final value of a variable is visible to everyone. The same goes for inside the build rule. If the value of one of the variables is modified after it's first declaration, only the final modified value is used for all purposes.
-
-Now, since we have declared variables, we also need to be able to access them inside build commands. This can be done using the prefix *$* (dollar) operator. To access variable *var* we use *$(var)*. Single letter variables can be accessed without the round brackets (). used An example of variable usage inside a build rule:
+Similarly, we can do the same inside any build rule, like:
 ```
+build A : B C
+	CXX = "g++"
+	! echo "building A!!"
+```
+Variables declared outside any build rule, in the *global scope* will be available for use in the global scope as well as inside the build rules. While those defined inside a build rule will only be visible inside the build rule.
+
+:::info
+Note that only the final value of a variable is visible to everyone. The same goes for inside the build rule. If the value of one of the variables is modified after it's first declaration, only the final modified value is used for all purposes.
+:::
+Now, since we have declared variables, we also need to be able to access them inside build commands. This can be done using the prefix *$* (dollar) operator. To access variable *var* we use *$(var)*. Single letter variables can be accessed without the round brackets *()*. An example of variable usage inside a build rule:
+```
+glob = "I am a global variable"
 build A : B
 	var = "hello"
 	a = 5
 	! echo $(var)
-	! echo $a
+	! echo $a $(glob)
 ```
 
-Since we might need to use the actual *$* character, the *$* letter can be used inside the command by escaping it with another *$* like so:
+Since we might need to use the actual *$* character, the *$* letter can be used inside the command by escaping it with another *$* like:
 ```
 build A : B
 	! echo $$var
