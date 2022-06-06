@@ -10,7 +10,7 @@ This article walks you through a basic way to write a build file. So let's get s
 ## Introduction
 Beast builds the targets that you specify in your build file based on the dependencies you specify among various targets. Simply put, it develops internal dependency relationships between various tasks that you need to complete (in this case, tasks means building a target).
 
-These dependencies are specified in the *beast.build* file. As we will see, we do this while specifying *build rules* for various targets. We can also define several *variables* in our beast file that can be changed locally withing several rules. One thing to note here is that beast runs all the commands given to build a specific target on the shell. So proper syntax for the commands in particular should be followed.
+These *dependencies* are specified in the *beast.build* file. As we will see, we do this while specifying *build rules* for various targets. We can also define several *variables* in our beast file that can be changed locally withing several rules. One thing to note here is that beast runs all the commands given to build a specific target on the shell. So proper syntax for the commands in particular should be followed.
 
 ## Defining build rules for targets
 A *build rule* for a target is what defines how the particular target will be built, what commands will be carried out while building this target, in what order will they be executed and what other targets should be built (or should be present before building this target).
@@ -23,7 +23,7 @@ build A : A.cpp B.o
 ```
 There are a number of things to observe in the example. First of all, note the *build* keyword. The **build** keyword specifies that we are about to define a build rule for the target that follows. In this case, the name of the target is *A*.
 
-Next, note that some file names (target names) follow after a colon (:), *A.cpp* and *B.o*. These are the dependencies on which the target *A* depends. This means, that it is necessary for these dependencies to either exist or to be built before *A* can be built. 
+Next, note that some file names (target names) follow after a colon (:), *A.cpp* and *B.o*. These are the ***dependencies*** on which the target *A* depends. This means, that it is necessary for these dependencies to either exist or to be built before *A* can be built. 
 
 :::note Build optimization
 Beast only builds a target if any of its dependencies has been updated after the modification of the target, to optimize the build procedure.
@@ -64,6 +64,13 @@ build A : B
 	! echo $(var)
 	! echo $a $(glob)
 ```
+We can also use variable values while naming the target and its dependencies in the *build* definition head. For example,
+```
+TARGET = "main"
+build $(TARGET) : $(TARGET).cpp
+	! g++ $(TARGET).cpp -o $(TARGET)
+```
+defines a build target *main* which depends on *main.cpp*.
 
 Since we might need to use the actual *$* character, the *$* letter can be used inside the command by escaping it with another *$* like:
 ```
@@ -73,6 +80,19 @@ build A : B
 This command will be resolve to *echo $var* when being executed.
 
 When we try to access the value of a variable that has not be declared, Beast will not replace it with anything. So if *var* is not declared in any scope (global or build rule scope), then a *$(var)* inside a build command will remain as *$(var)*.
+
+### Special variables
+
+Inside a build rule, *Beast* automatically defines some special variables for the target being defined by the rule and the dependencies. The target whose build rule is being defined can be accessed with the *out* variable inside the build rule body. Similarly, The i<sup>th</sup> dependency for the target can be accesed as *$i*.
+For example,
+```
+build A : B
+	! echo $(out) $1
+```
+prints `A B` when rule *A* is built.
+:::danger variable naming
+Dont use keywords like *build*, *out* or numbers for naming a variable. This can lead to an error or undefined behaviour depending on the issue.
+:::
 
 ## Comments
 Comments are statements that will not be read or processed by Beast. As in any programming language, comments can help define purpose of various statements in your code/file.
