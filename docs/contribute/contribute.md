@@ -21,7 +21,7 @@ Some points to take care:
 4. Avoid using the `using namespace` syntax. Prefix the particular namespace whenever required.
 
 ## Contact me
-All your contributions are welcome!!! Let's discuss! You can drop an email in the official mailing list at beast-build@googlegroups.com. My personal email adress is gaurav19039@iiitd.ac.in.
+All your contributions are welcome!!! Let's discuss! You can join the official [mailing list](https://groups.google.com/g/beast-build) and drop an email at beast-build@googlegroups.com once you are a member. My personal email adress is gaurav19039@iiitd.ac.in.
 
-This mailing list can be used for all purposes like bug reports, fixes, feature requests. Although it is advised to use Github issues for the repository for 
+This [mailing list](https://groups.google.com/g/beast-build) can be used for all sort of discussions related to contribution, new features, bug fixes and more. Please use the [mailing list](https://groups.google.com/g/beast-build) or my email adress to discuss before making a pull request.
 
