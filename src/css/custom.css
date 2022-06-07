@@ -89,8 +89,8 @@ img[alt=intro-logo]{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -50px;    /*to make top margin less*/
-  margin-bottom: -80px; /* to make text padding less*/
+  margin-top: -40px;    /*to make top margin less*/
+  margin-bottom: -70px; /* to make text padding less*/
   width: 70%;
 }
 img[alt=dependency-graph] {
