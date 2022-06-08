@@ -7,7 +7,7 @@ sidebar_position: 2
 Installing Beast is super-easy. You can either download your *system binaries* directly or you can compile it from source yourself. 
 
 ## Pre-compiled binaries
-You can directly download your system specific binaries from the release section on github.
+You can directly download your system specific binaries from the [release](https://github.com/GauravDawra/Beast/releases/) section on github.
 
 Once you have downloaded the binaries, make sure that the location of this executable is present in the *PATH* environment variable. */usr/local/bin* is the preferred position to place the *beast* executable.
 
