@@ -16,6 +16,10 @@ and also provides great build times!
 [![MacOS](https://github.com/GauravDawra/Beast/actions/workflows/mac_build.yml/badge.svg)](https://github.com/GauravDawra/Beast/actions?query=workflow%3AMacOS)
 [![Ubuntu](https://github.com/GauravDawra/Beast/actions/workflows/ubuntu_build.yml/badge.svg)](https://github.com/GauravDawra/Beast/actions?query=workflow%3AUbuntu)
 
+# What is a Build System?
+A build system is a tool that helps you build your projects. To put it simply, it keeps track of the various procedures that need to be followed to build/run the code, maintains the order in which these processes need to carried out and also rebuilds out of date targets... A build system does much more than this!!! ***Beast*** is such a build system that helps you build your projects with ease and efficiency!
+
+# Beast overview
 Beast builds projects based on the information provided in a *beast build file*. In this build file, the user defines what all items need to be built (*targets*), how they should be built (*build rules*), and what all targets need to be ready to build a particular target (*dependencies*). In this way, Beast works on a comprehensive and easy to use target-dependency model. For more information about the particular aspects of a build file, see [**Writing a Beast File**](writingABeastFile.md).
 
 Not only does Beast provide you with an easy to understand structure for all your build needs, it comes with a super-easy and intuitive syntax. This causes Beast to be a tool suitable for both highly experienced programmers and beginners.

@@ -73,6 +73,10 @@
 .header-github-link:hover {
   opacity: 0.7;
 }
+/* .header-github-link {
+  width: 120px;
+  background-position-x: right;
+} */
 [data-theme='light'] .header-github-link {
   background-image: url('../../static/img/GitHub-Mark-64px.png');
 }
